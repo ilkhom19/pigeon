@@ -7,7 +7,7 @@ require (
 	github.com/getkin/kin-openapi v0.120.0
 	github.com/go-chi/chi/v5 v5.0.10
 	github.com/go-openapi/runtime v0.26.0
-	github.com/oapi-codegen/nethttp-middleware v1.0.1
+	github.com/joho/godotenv v1.3.0
 	github.com/oapi-codegen/runtime v1.0.0
 )
 

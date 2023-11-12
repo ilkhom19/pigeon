@@ -17,10 +17,18 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-openapi/runtime/middleware"
+	"github.com/joho/godotenv"
 	"pigeon/api"
 )
 
 func init() {
+
+	err := godotenv.Load(".env")
+
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
 	_username = os.Getenv("SMTP_USERNAME")
 	_password = os.Getenv("SMTP_PASSWORD")
 	_salt = os.Getenv("SALT")
@@ -33,6 +41,7 @@ func main() {
 		SMTPUsername: _username,
 		SMTPPassword: _password,
 	}
+
 	service := NewEmailService(smtpConfig, &_salt)
 	s := NewServer(service)
 
@@ -66,7 +75,7 @@ func main() {
 	apiServer := api.HandlerWithOptions(
 		api.NewStrictHandler(s, nil),
 		api.ChiServerOptions{
-			BaseURL:    "/api/v1",
+			BaseURL:    "",
 			BaseRouter: router,
 			Middlewares: []api.MiddlewareFunc{
 				validator,
@@ -154,7 +163,7 @@ func (s *EmailService) PostSendMail(ctx context.Context, request api.PostSendMai
 }
 
 func (s *EmailService) PostBookaroomVerify(ctx context.Context, request api.PostBookaroomVerifyRequestObject) (api.PostBookaroomVerifyResponseObject, error) {
-	receiver := request.Body.Receiver
+	receiver := request.Body.Email
 
 	rand.Seed(time.Now().UnixNano())
 	codeStr := fmt.Sprintf("%d", rand.Intn(9000)+1000)

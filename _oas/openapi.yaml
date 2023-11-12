@@ -62,6 +62,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
+      tags:
+        - Bookaroom
 
 components:
   schemas:
@@ -86,11 +88,11 @@ components:
     Address:
       type: object
       properties:
-        receiver:
+        email:
           type: string
           format: email
       required:
-        - receiver
+        - email
 
     VerificationResponse:
       type: object
