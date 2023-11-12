@@ -56,8 +56,8 @@ func main() {
 	router.Get("/swagger/doc.json", func(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(swagger)
 	})
-	router.Handle("/swagger/", middleware.SwaggerUI(middleware.SwaggerUIOpts{
-		Path:    "/swagger/",
+	router.Handle("/docs/", middleware.SwaggerUI(middleware.SwaggerUIOpts{
+		Path:    "/docs/",
 		SpecURL: "/swagger/doc.json",
 	}, nil))
 

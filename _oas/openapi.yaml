@@ -1,8 +1,17 @@
 openapi: 3.0.3
 info:
   title: Pigeon - Simplifying Email Sending
-  description: Pigeon is a lightweight and efficient email-sending service built using the Go programming language. With the power of the Chi router, Project Pigeon exposes a simple API endpoint that allows you to send emails seamlessly. The project embraces simplicity and ease of use, making it an ideal choice for developers who need a hassle-free solution for integrating email functionality into their applications.
+  description: Pigeon is a lightweight and efficient email-sending service built using the Go programming language. The project embraces simplicity and ease of use, making it an ideal choice for developers who need a hassle-free solution for integrating email functionality into their applications.
   version: 1..0
+
+  contact:
+    name: Ilkhom Sidikov
+    url: https://www.linkedin.com/in/ilkhom-sidikov/
+    email: ilkhom.c@gmail.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+
 servers:
   - url: http://localhost:8000
     description: Local server
