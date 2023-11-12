@@ -1,0 +1,118 @@
+openapi: 3.0.3
+info:
+  title: Pigeon - Simplifying Email Sending
+  description: Pigeon is a lightweight and efficient email-sending service built using the Go programming language. With the power of the Chi router, Project Pigeon exposes a simple API endpoint that allows you to send emails seamlessly. The project embraces simplicity and ease of use, making it an ideal choice for developers who need a hassle-free solution for integrating email functionality into their applications.
+  version: 1..0
+servers:
+  - url: http://localhost:8000
+    description: Local server
+
+paths:
+  /send_mail:
+    post:
+      summary: Send an email
+      description: |
+        Send an email with the specified details.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Email'
+      responses:
+        '200':
+          description: Email sent successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        default:
+          description: General Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+      tags:
+        - Pigeon
+  /bookaroom_verify:
+    post:
+      summary: Send verification email for Bookaroom.app
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Address'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerificationResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+
+components:
+  schemas:
+    Email:
+      type: object
+      properties:
+        receiver:
+          type: string
+          format: email
+          description: Recipient's email address
+        subject:
+          type: string
+          description: Email subject
+        body:
+          type: string
+          description: Email body
+      required:
+        - receiver
+        - subject
+        - body
+
+    Address:
+      type: object
+      properties:
+        receiver:
+          type: string
+          format: email
+      required:
+        - receiver
+
+    VerificationResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type: string
+        hash:
+          type: string
+      required:
+        - status
+        - message
+        - hash
+
+    Response:
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type: string
+      required:
+        - status
+        - message
