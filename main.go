@@ -8,17 +8,16 @@ import (
 	"fmt"
 	chimiddleware "github.com/deepmap/oapi-codegen/pkg/chi-middleware"
 	"github.com/getkin/kin-openapi/openapi3filter"
+	"github.com/go-chi/chi/v5"
+	"github.com/go-openapi/runtime/middleware"
+	"github.com/joho/godotenv"
 	"log"
 	"math/rand"
 	"net/http"
 	"net/smtp"
 	"os"
-	"time"
-
-	"github.com/go-chi/chi/v5"
-	"github.com/go-openapi/runtime/middleware"
-	"github.com/joho/godotenv"
 	"pigeon/api"
+	"time"
 )
 
 func init() {

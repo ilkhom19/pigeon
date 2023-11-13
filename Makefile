@@ -10,4 +10,4 @@ run:
 	go run main.go
 
 visit:
-	open http://localhost:8000/swagger/
+	open http://localhost:8000/docs
