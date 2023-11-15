@@ -25,7 +25,7 @@ Install oapi-codegen
 go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest
 ```
 
-Generate
+Generate the server code
 ```shell
 oapi-codegen -config config/server.cfg.yaml docs/openapi.yaml
 ```
