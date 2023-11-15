@@ -13,7 +13,7 @@ go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest
 
 Generate
 ```shell
-oapi-codegen -config _oas/server.cfg.yaml _oas/openapi3.yaml
+oapi-codegen -config docs/server.cfg.yaml docs/openapi3.yaml
 ```
 
 Run server
