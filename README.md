@@ -5,6 +5,13 @@ https://github.com/deepmap/oapi-codegen
 
 ## Getting started
 
+Create a `.env` file in the project directory and configure it with your Yandex SMTP server credentials. Example:
+
+   ```env
+   SMTP_USERNAME=your_smtp_username
+   SMTP_PASSWORD=your_smtp_password
+   ```
+
 Run the project
 ```shell
 make run
