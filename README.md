@@ -1,6 +1,9 @@
 # Pigeon | [Visit API Documentation](https://pigeon-cretto.koyeb.app/docs)
 
+###Pigeon is a lightweight and efficient email-sending service built using the Go programming language. The project embraces simplicity and ease of use, making it an ideal choice for developers who need a hassle-free solution for integrating email functionality into their applications.
+
 The project uses OPEN-API 3 code gen
+
 https://github.com/deepmap/oapi-codegen
 
 ## Getting started
