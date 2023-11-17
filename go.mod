@@ -6,8 +6,8 @@ require (
 	github.com/deepmap/oapi-codegen v1.16.2
 	github.com/getkin/kin-openapi v0.120.0
 	github.com/go-chi/chi/v5 v5.0.10
+	github.com/go-chi/cors v1.2.1
 	github.com/go-openapi/runtime v0.26.0
-	github.com/joho/godotenv v1.3.0
 	github.com/oapi-codegen/runtime v1.0.0
 )
 

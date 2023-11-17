@@ -6,6 +6,7 @@ import (
 	chimiddleware "github.com/deepmap/oapi-codegen/pkg/chi-middleware"
 	"github.com/getkin/kin-openapi/openapi3filter"
 	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/cors"
 	"github.com/go-openapi/runtime/middleware"
 	"log"
 	"net/http"
@@ -27,6 +28,16 @@ func main() {
 	swagger.Servers = nil
 
 	router := chi.NewRouter()
+
+	cors := cors.New(cors.Options{
+		AllowedOrigins:   []string{"*"},
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
+		ExposedHeaders:   []string{"Link"},
+		AllowCredentials: true,
+		MaxAge:           300, // Maximum value not ignored by any of major browsers
+	})
+	router.Use(cors.Handler)
 
 	router.Get("/swagger/doc.json", func(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(swagger)
