@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Pigeon - Simplifying Email Sending
   description: Pigeon is a lightweight and efficient email-sending service built using the Go programming language. The project embraces simplicity and ease of use, making it an ideal choice for developers who need a hassle-free solution for integrating email functionality into their applications.
-  version: 1..0
+  version: 1.0.0
 
   contact:
     name: Ilkhom Sidikov
